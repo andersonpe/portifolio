@@ -11,8 +11,8 @@ export default class GeneratePreDefinedCertifications {
 
   #generateCertificationsJson() {
     const base = new GeneratePreDefinedBase().generateCertificationsJson(null, 'certifications');
-    console.log(base);
-    const posts = base.files.map(filename => {
+
+    const certifications = base.files.map(filename => {
       const filePath = path.join(base.directory, filename);
       const fileContent = fs.readFileSync(filePath, 'utf-8');
       
@@ -30,10 +30,10 @@ export default class GeneratePreDefinedCertifications {
       };
     });
 
-    posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+    certifications.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
-    fs.writeFileSync(base.outputFile, JSON.stringify(posts, null, 2), 'utf-8');
-    console.log(`✅ [Blog] ${posts.length} posts processados e salvos em ${base.outputFile}`);
+    fs.writeFileSync(base.outputFile, JSON.stringify(certifications, null, 2), 'utf-8');
+    console.log(`✅ [Certifications] ${certifications.length} certificados processados e salvos em ${base.outputFile}`);
   }
 
 }

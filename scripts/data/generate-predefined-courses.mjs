@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import frontMatter from 'front-matter';
+import GeneratePreDefinedBase from './generate-predefined-base.mjs';
 
 export default class GeneratePreDefinedCourses {
 
@@ -9,17 +10,9 @@ export default class GeneratePreDefinedCourses {
   }
 
   #generateCoursesJson() {
-    const directory = path.join(process.cwd(), 'public', 'courses');
-    const outputFile = path.join(directory, 'list.json');
+    const base = new GeneratePreDefinedBase().generateCertificationsJson(null, 'courses');
 
-    if (!fs.existsSync(directory)) {
-      console.error(`❌ Diretório não encontrado: ${directory}`);
-      return;
-    }
-
-    const files = fs.readdirSync(directory).filter(file => file.endsWith('.md'));
-
-    const posts = files.map(filename => {
+    const courses = base.files.map(filename => {
       const filePath = path.join(directory, filename);
       const fileContent = fs.readFileSync(filePath, 'utf-8');
       
@@ -37,10 +30,10 @@ export default class GeneratePreDefinedCourses {
       };
     });
 
-    posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+    courses.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
-    fs.writeFileSync(outputFile, JSON.stringify(posts, null, 2), 'utf-8');
-    console.log(`✅ [Blog] ${posts.length} posts processados e salvos em ${outputFile}`);
+    fs.writeFileSync(base.outputFile, JSON.stringify(courses, null, 2), 'utf-8');
+    console.log(`✅ [Courses] ${courses.length} cursos processados e salvos em ${base.outputFile}`);
   }
 
 }

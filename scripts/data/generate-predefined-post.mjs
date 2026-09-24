@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import frontMatter from 'front-matter';
+import GeneratePreDefinedBase from './generate-predefined-base.mjs';
 
 export default class GeneratePreDefinedPost {
 
@@ -9,17 +10,9 @@ export default class GeneratePreDefinedPost {
   }
 
   #generatePostsJson() {
-    const directory = path.join(process.cwd(), 'public', 'posts');
-    const outputFile = path.join(directory, 'posts.json');
+    const base = new GeneratePreDefinedBase().generateCertificationsJson(null, 'posts');
 
-    if (!fs.existsSync(directory)) {
-      console.error(`❌ Diretório não encontrado: ${directory}`);
-      return;
-    }
-
-    const files = fs.readdirSync(directory).filter(file => file.endsWith('.md'));
-
-    const posts = files.map(filename => {
+    const posts = base.files.map(filename => {
       const filePath = path.join(directory, filename);
       const fileContent = fs.readFileSync(filePath, 'utf-8');
      
@@ -37,12 +30,10 @@ export default class GeneratePreDefinedPost {
       };
     });
 
-    // 3. Ordena os posts pelo mais recente primeiro
     posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
-    // 4. Salva o posts.json gerado
-    fs.writeFileSync(outputFile, JSON.stringify(posts, null, 2), 'utf-8');
-    console.log(`✅ [Blog] ${posts.length} posts processados e salvos em ${outputFile}`);
+    fs.writeFileSync(base.outputFile, JSON.stringify(posts, null, 2), 'utf-8');
+    console.log(`✅ [Blog] ${posts.length} posts processados e salvos em ${base.outputFile}`);
   }
 
 }

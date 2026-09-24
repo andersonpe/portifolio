@@ -4,7 +4,6 @@ import path from 'node:path';
 export default class GeneratePreDefinedBase {
 
     generateCertificationsJson(fileFolder, dataFolder) {
-        console.log(fileFolder)
         const directory = path.join(process.cwd(), fileFolder ? fileFolder : 'public/data', dataFolder);
         const outputFile = path.join(directory, 'list.json');
 
