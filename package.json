@@ -1,7 +1,10 @@
 {
   "name": "portifolio",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "scripts": {
+    "generate:predefineddata": "node scripts/generate-predefined-data.mjs",
+    "prestart": "npm run generate:predefineddata",
+    "prebuild": "npm run generate:predefineddata",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
@@ -21,6 +24,7 @@
     "@angular/router": "^22.1.0",
     "@angular/ssr": "^22.1.8",
     "express": "^5.1.0",
+    "front-matter": "^4.0.2",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0"
   },
