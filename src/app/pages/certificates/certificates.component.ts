@@ -1,5 +1,6 @@
 import { CommonModule } from "@angular/common";
-import { Component } from "@angular/core";
+import { Component, inject, OnInit } from "@angular/core";
+import { CabecalhoService } from "../../services/cabecalho/cabecalho.service";
 
 @Component({
   selector: 'apds-certificates',
@@ -8,5 +9,11 @@ import { Component } from "@angular/core";
   templateUrl: './certificates.component.html',
   styleUrls: ['./certificates.component.scss']
 })
-export class CertificatesComponent {
+export class CertificatesComponent implements OnInit {
+  protected cabecalho = inject(CabecalhoService);
+  
+  ngOnInit() {
+    this.cabecalho.setTitle();
+    this.cabecalho.setMetaTags();
+  }  
 }

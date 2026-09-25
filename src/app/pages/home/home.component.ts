@@ -1,6 +1,6 @@
 import { CommonModule } from "@angular/common";
 import { Component, inject, OnInit } from "@angular/core";
-import { Meta, Title } from "@angular/platform-browser";
+import { CabecalhoService } from "../../services/cabecalho/cabecalho.service";
 
 @Component({
   selector: 'apds-home',
@@ -10,23 +10,12 @@ import { Meta, Title } from "@angular/platform-browser";
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  protected meta = inject(Meta);
-  protected title = inject(Title);
+  protected cabecalho = inject(CabecalhoService);
   
   ngOnInit() {
-    this.addMyMetaTags();
-    this.addTitle();
-  }
-
-  private addMyMetaTags() {
-    this.meta.updateTag({ name: 'keywords', content: 'Angular, SEO, Meta Tags' });
-    this.meta.updateTag({ name: 'robots', content: 'index, follow' });
-    this.meta.updateTag({ name: 'description', content: 'article' });
-    this.meta.updateTag({ property: 'og:type', content: 'article' });
-  }
-
-  private addTitle() {
-    this.title.setTitle("Portifólio - Anderson P. Da Silva");
+    this.cabecalho.setTitle();
+    this.cabecalho.setMetaTags();
   }
 
 }
+
