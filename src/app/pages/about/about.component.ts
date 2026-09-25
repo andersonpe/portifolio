@@ -13,7 +13,7 @@ export class AboutComponent implements OnInit  {
   protected cabecalho = inject(CabecalhoService);
   
   ngOnInit() {
-    this.cabecalho.setTitle();
+    this.cabecalho.setTitle("Sobre - Anderson Pereira da Silva");
     this.cabecalho.setMetaTags();
   }
 }
