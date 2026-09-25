@@ -3,9 +3,10 @@ import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ThemeService } from './services/theme/theme.service';
 import { Meta } from '@angular/platform-browser';
+import { FooterComponent } from './components/footer/footer.component';
 
 @Component({
-  imports: [RouterOutlet, CommonModule],
+  imports: [RouterOutlet, CommonModule, FooterComponent],
   selector: 'apds-root',
   styleUrl: './app.scss',
   templateUrl: './app.html',

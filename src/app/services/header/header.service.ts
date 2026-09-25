@@ -25,6 +25,4 @@ export class HeaderService {
         this.title.setTitle(title);
     }
 
-
 }
-

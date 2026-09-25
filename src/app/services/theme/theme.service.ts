@@ -10,8 +10,6 @@ export class ThemeService {
     private readonly THEME_KEY = 'app-theme';
     private platformId = inject(PLATFORM_ID);
     private injector = inject(Injector);
-
-    // 1. Sempre inicialize com um valor estático seguro (evita rodar funções no servidor)
     theme = signal<Theme>(ThemeEnum.LIGHT);
 
     constructor() {

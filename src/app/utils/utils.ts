@@ -10,4 +10,8 @@ export class Utils {
         const found = items.find(filter);
         return found !== undefined ? found : null;
     }
+
+    public static isNullOrUndefined<T>(object: T | null | undefined): object is null | undefined {
+        return object === null || object === undefined;
+    }
 }
