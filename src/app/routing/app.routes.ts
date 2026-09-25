@@ -5,6 +5,8 @@ import { CertificatesComponent } from '../pages/certificates/certificates.compon
 import { BlogComponent } from '../pages/blog/blog.component';
 import { NotFoundComponent } from '../pages/not-found/not-found.component';
 import { HomeComponent } from '../pages/home/home.component';
+import { CertificateDetailComponent } from '../pages/certificates/certificates-detail/certificate-detail.component';
+import { BlogPostComponent } from '../pages/blog/blog-post/blog-post.component';
 
 export const routes: Routes = [
     {
@@ -19,11 +21,11 @@ export const routes: Routes = [
         path: RoutingEnum.Certificates, 
         component: CertificatesComponent,
     },
-    /*{
+    {
         path: RoutingEnum.CertificatesSlug,
-      //  component: CertificateDetailComponent,
+        component: CertificateDetailComponent,
      // resolve: { user: certificateResolver }
-    },*/
+    },
     { 
         path: RoutingEnum.Certs, 
         redirectTo: RoutingEnum.Certificates, 
@@ -40,10 +42,10 @@ export const routes: Routes = [
         path: RoutingEnum.Blog, 
         component: BlogComponent
     },
-    /*{ 
+    { 
         path: RoutingEnum.BlogPost, 
         component: BlogPostComponent
-    }, */  
+    },
     {
         path: RoutingEnum.NotFound, 
         component: NotFoundComponent
