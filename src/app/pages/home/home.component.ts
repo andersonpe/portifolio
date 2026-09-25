@@ -1,6 +1,6 @@
 import { CommonModule } from "@angular/common";
 import { Component, inject, OnInit } from "@angular/core";
-import { CabecalhoService } from "../../services/cabecalho/cabecalho.service";
+import { HeaderService } from "../../services/header/header.service";
 
 @Component({
   selector: 'apds-home',
@@ -10,7 +10,7 @@ import { CabecalhoService } from "../../services/cabecalho/cabecalho.service";
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  protected cabecalho = inject(CabecalhoService);
+  protected cabecalho = inject(HeaderService);
   
   ngOnInit() {
     this.cabecalho.setTitle();

@@ -5,7 +5,7 @@ import { Utils } from '../../utils/utils';
 @Injectable({
   providedIn: 'root'
 })
-export class CabecalhoService {
+export class HeaderService {
     protected meta = inject(Meta);
     protected title = inject(Title);
 
