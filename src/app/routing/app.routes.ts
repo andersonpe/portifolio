@@ -4,8 +4,13 @@ import { AboutComponent } from '../pages/about/about.component';
 import { CertificatesComponent } from '../pages/certificates/certificates.component';
 import { BlogComponent } from '../pages/blog/blog.component';
 import { NotFoundComponent } from '../pages/not-found/not-found.component';
+import { HomeComponent } from '../pages/home/home.component';
 
 export const routes: Routes = [
+    {
+        path: RoutingEnum.Home,
+        component: HomeComponent,
+    },
     {
         path: RoutingEnum.About,
         component: AboutComponent,

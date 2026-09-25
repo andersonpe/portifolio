@@ -1,1 +1,3 @@
-<router-outlet />
+<main [ngClass]="{ 'dark': darkThemed(), 'default': !darkThemed() }">
+   <router-outlet />
+</main>

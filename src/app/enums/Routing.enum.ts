@@ -1,4 +1,5 @@
 export const enum RoutingEnum {
+  Home = '',
   About = 'about',
   Blog = 'blog',
   BlogPost = 'blog/:slug',
