@@ -1,0 +1,10 @@
+<header
+      class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+      [ngClass]="{
+        'bg-[#0c0d10]/85 backdrop-blur-md border-b border-white/[0.08] shadow-lg shadow-black/20': isScrolled() && isDarkMode(),
+        'bg-white/90 backdrop-blur-md border-b border-neutral-200/80 shadow-sm': isScrolled() && !isDarkMode(),
+        'bg-transparent border-b border-transparent': !isScrolled()
+      }"
+    >
+navbar
+</header>

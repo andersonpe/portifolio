@@ -2,11 +2,11 @@ import { Component, computed, inject, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ThemeService } from './services/theme/theme.service';
-import { Meta } from '@angular/platform-browser';
 import { FooterComponent } from './components/footer/footer.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @Component({
-  imports: [RouterOutlet, CommonModule, FooterComponent],
+  imports: [RouterOutlet, CommonModule, NavbarComponent, FooterComponent],
   selector: 'apds-root',
   styleUrl: './app.scss',
   templateUrl: './app.html',
